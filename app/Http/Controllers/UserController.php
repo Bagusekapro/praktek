@@ -32,6 +32,7 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
+        Log::info('hry');
         try {
             $request->validate([
                 'pondok_id' => 'required',

@@ -1,18 +1,13 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\AuthController;
 
-Route::get('/', function () {
-    return view('welcome');
+
+Route::get('/',function(){
+    return view('pages.dashboard');
 });
 
-Route::post('/login', function () {
-    return view('login');
-});
-Route::middleware(['auth:sanctum'])->group(function () {
 
-    Route::get('/contacts', function () {
-        return view('contact');
-    });
+Route::get('/login',function(){
+    return view('pages.login');
 });
