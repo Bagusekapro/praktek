@@ -27,7 +27,7 @@ class UserFactory extends Factory
     {
         $roles = ['Ustadz','Santri','Pengurus'];
         return [
-            'pondok_id' => Pondok::all()->random()->id,
+            'pondok_id' => Pondok::all()->random()->nullable()->id,
             'name' => fake()->name(),
             'role_name' => (string) fake()->randomElement($roles),
             'email' => fake()->unique()->safeEmail(),
