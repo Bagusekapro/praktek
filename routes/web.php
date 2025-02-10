@@ -1,46 +1,28 @@
 <?php
 
+use App\Models\Pondok;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AuthController;
+use App\Http\Controllers\homeController;
 
+Route::middleware(['auth'])->group(function () {
 
-// eror
-// Route::get('/login',function(){
-//     return view('pages.login');
-// });
+    // CASE 1
 
+    // Route::get('/home', function () {
+    //     $data = DB::table('users')->where('name', Auth::user()->name)->first();
+    //     return view('pages.dashboard',['email'=> $data->name]);
+    // });
 
+    // CASE 2
 
-// inti
-Route::middleware(['auth'])->group(function(){
-    Route::get('/',function(){
-        return view('pages.dashboard');
-    });
-    
-    
+    Route::get('/home',[homeController::class, 'pondokName']);
+
+    // Route::get('/', function () {
+        //     return view('pages.dashboard');
+        // });
+
+    Route::get('/',[homeController::class, 'pondokName']);
 });
-
-
-// Route::get('/', function () {
-//     return view('welcome');
-// });
-
-// Route::post('/login', function () {
-//     return view('login');
-// });
-// Route::middleware(['auth:sanctum'])->group(function () {
-
-//     Route::get('/contacts', function () {
-//         return view('contact');
-//     });
-// });
-
-
-
-// Route::get('/',function(){
-//             return view('pages.dashboard');
-//         });
-        
-        
-// Route::get('/login',function(){
-//             return view('pages.login'); 
-// });
