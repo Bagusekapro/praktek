@@ -98,7 +98,29 @@
                                         <tr>
                                             <th scope="row">{{$user->id ?? 'No Data'}}</th>
                                             <td>{{$user->name ?? 'No Data'}}</td>
-                                            <td>{{$user->email ?? 'No Data'}}
+                                            <td>{{$user->email ?? 'No Data'}}</td>
+                                            <td>
+                                                <form action="/"
+                                                    method="POST" class="d-inline ml-1">
+                                                    @csrf
+                                                    {{-- @method('DELETE') --}}
+                                                    <button type="hidden" value="EDIT" name="_method" class="btn btn-sm btn-primary btn-icon"
+                                                        data-toggle="tooltip" title="Edit">
+                                                        <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                                                        <i class="fas fa-pencil"></i>
+                                                    </button>
+                                                </form>
+                                                    <form action="{{ route('userWeb.destroy', $user->id) }}"
+                                                        method="POST" class="d-inline ml-1">
+                                                        @csrf
+                                                        @method('DELETE')
+                                                        <button type="hidden" value="DELETE" name="_method" class="btn btn-sm btn-danger btn-icon"
+                                                            data-toggle="tooltip" title="Delete">
+                                                            <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                                                            <i class="fas fa-trash"></i>
+                                                        </button>
+                                                    </form>
+                                            </td>
 
                                         </tr>
                                     </tbody>

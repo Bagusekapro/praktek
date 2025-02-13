@@ -5,6 +5,11 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\PondokController;
+use App\Http\Controllers\PrayerServicesController;
+
+
+// > /api/prayer-times/jakarta/2024-05-27
+Route::get('prayer-services/{location}/{date}',[PrayerServicesController::class, 'index']);
 
 // tambahan
 // Route::post('user',function (Resquest $request){
@@ -16,6 +21,8 @@ use App\Http\Controllers\PondokController;
      
 //     return response()->json($user,201);
 // });
+
+Route::resource('userWeb', UserWebController::class);
 
 // Route::post('/post',[AuthController::class,'store']);
 Route::post('login', [AuthController::class, 'login'])->name('api.login');

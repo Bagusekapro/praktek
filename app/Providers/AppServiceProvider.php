@@ -11,7 +11,9 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-        //
+        $this->app->singleton(PrayerServices::class, function ($app) {
+            return new PrayerServices(new \GuzzleHttp\Client);
+        });
     }
 
     /**
