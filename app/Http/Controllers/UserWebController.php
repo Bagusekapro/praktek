@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Foundation\Auth\User;
 
 class UserWebController extends Controller
 {
@@ -45,8 +46,8 @@ class UserWebController extends Controller
     {
         $user = User::findOrFail($id);
         $user->delete();
-        session()->flash('succes','user'. $user->name. 'delete succesfully');
-        return redirect()->route('home')->with('succes', 'user'. $user->email. 'delete succesfully');
-    }
+        session()->flash('success', 'User ' . $user->name . ' deleted successfully.');
+        return redirect()->route('home')->with('success', 'User ' . $user->email . ' deleted successfully.');
 
+}
 }

@@ -126,6 +126,12 @@
                                     </tbody>
                                     @endforeach
                                 </table>
+                                <div
+                                class="float-right mt-3 mb-3 card-footer page-item disa ">
+                                    {{$data->withQueryString()->links() }}
+                                    
+                                </div>
+                            </div>
 
                             </div>
                     </div>
